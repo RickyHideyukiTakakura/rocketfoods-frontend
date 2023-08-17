@@ -17,10 +17,14 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
   }
 
-  body, input, button, textarea {
+  body, input, textarea {
     font-family: "Roboto", sans-serif;
     font-size: 1.6rem;
     outline: none;
+  }
+
+  button, a {
+    font-family: "Poppins", sans-serif;
   }
 
   a {
