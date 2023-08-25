@@ -15,9 +15,10 @@ export default createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.COLORS.DARK_400};
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    font-family: "Poppins", sans-serif;
   }
 
-  body, input, textarea {
+  input, textarea {
     font-family: "Roboto", sans-serif;
     font-size: 1.6rem;
     outline: none;

@@ -20,7 +20,6 @@ export const SignIn = styled.div`
       border-radius: 1.6rem;
 
       h1 {
-        font-family: "Poppins", sans-serif;
         font-size: 3.2rem;
         font-weight: 500;
 
