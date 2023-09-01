@@ -9,7 +9,7 @@ export const SignIn = styled.div`
 
   height: 100vh;
 
-  @media (min-width: 1048px) {
+  @media (min-width: 1200px) {
     flex-direction: row;
     gap: 30rem;
 

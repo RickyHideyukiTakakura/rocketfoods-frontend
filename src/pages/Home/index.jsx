@@ -11,15 +11,15 @@ export function Home() {
     <S.Home>
       <Header />
 
-      <S.Banner>
-        <img src={HomeImage} alt="Foto de macarons" />
-        <div>
-          <h3>Sabores inigualáveis</h3>
-          <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
-        </div>
-      </S.Banner>
-
       <main>
+        <S.Banner>
+          <img src={HomeImage} alt="Foto de macarons" />
+          <div>
+            <h3>Sabores inigualáveis</h3>
+            <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
+          </div>
+        </S.Banner>
+
         <Section title="Refeições">
           <Card
             image={FoodImageOne}

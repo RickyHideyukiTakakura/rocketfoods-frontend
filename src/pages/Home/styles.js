@@ -7,6 +7,12 @@ export const Home = styled.div`
     padding-left: 2.4rem;
     padding-bottom: 2.4rem;
   }
+
+  @media (min-width: 1200px) {
+    main {
+      padding: 16.4rem 12.4rem 4.8rem;
+    }
+  }
 `;
 
 export const Banner = styled.div`
@@ -44,5 +50,31 @@ export const Banner = styled.div`
     position: absolute;
     top: -30px;
     left: -20px;
+  }
+
+  @media (min-width: 1200px) {
+    margin: 0;
+    margin-bottom: 6.4rem;
+    padding: 8.8rem 0rem;
+
+    div {
+      margin-left: 60rem;
+
+      h3 {
+        font-size: 4rem;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+    img {
+      width: 60rem;
+      height: 41rem;
+      top: -150px;
+      left: -52px;
+    }
   }
 `;

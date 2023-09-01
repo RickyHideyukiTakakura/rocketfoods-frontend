@@ -11,6 +11,10 @@ export const Card = styled.div`
   margin-top: 2.4rem;
   padding: 2.4rem;
 
+  background: ${({ theme }) => theme.COLORS.DARK_200};
+  border-radius: 0.8rem;
+  border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
+
   img {
     width: 8.8rem;
     height: 8.8rem;
