@@ -1,5 +1,6 @@
-import { FiHeart, FiMinus, FiPlus } from "react-icons/fi";
+import { FiHeart } from "react-icons/fi";
 import { Button } from "../Button";
+import { Quantity } from "../Quantity";
 import * as S from "./styles";
 
 export function Card({ image, title, price, quantity }) {
@@ -9,11 +10,7 @@ export function Card({ image, title, price, quantity }) {
       {<FiHeart />}
       <p>{title}</p>
       <p>R$ {price}</p>
-      <div>
-        <button>{<FiMinus />}</button>
-        <span>{quantity}</span>
-        <button>{<FiPlus />}</button>
-      </div>
+      <Quantity />
       <Button title="Incluir" />
     </S.Card>
   );
