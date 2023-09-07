@@ -19,28 +19,30 @@ export function Details() {
 
         <img src={PlateImage} alt="" />
 
-        <S.Description>
-          <h2>Salada Ravanello</h2>
+        <div>
+          <S.Description>
+            <h2>Salada Ravanello</h2>
 
-          <p>
-            Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-          </p>
+            <p>
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+            </p>
 
-          <div>
-            <span>Alface</span>
-            <span>Alface</span>
-            <span>Alface</span>
-            <span>Alface</span>
-          </div>
-        </S.Description>
+            <div>
+              <span>Alface</span>
+              <span>Alface</span>
+              <span>Alface</span>
+              <span>Alface</span>
+            </div>
+          </S.Description>
 
-        <S.Order>
-          <Quantity />
+          <S.Order>
+            <Quantity />
 
-          <button>
-            <PiReceipt /> <span>pedir ∙ R$ 25,00</span>
-          </button>
-        </S.Order>
+            <button>
+              <PiReceipt /> <span>pedir ∙ R$ 25,00</span>
+            </button>
+          </S.Order>
+        </div>
       </div>
 
       <Footer />

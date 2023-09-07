@@ -40,6 +40,18 @@ export const Details = styled.div`
       height: 26.4rem;
     }
   }
+
+  @media (min-width: 1200px) {
+    > div {
+      flex-direction: row;
+      gap: 4.8rem;
+
+      img {
+        width: 39rem;
+        height: 39rem;
+      }
+    }
+  }
 `;
 
 export const Description = styled.div`
@@ -73,6 +85,20 @@ export const Description = styled.div`
 
       font-size: 1.4rem;
       font-weight: 500;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    h2 {
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 2.4rem;
+    }
+
+    > div {
+      gap: 1.2rem;
     }
   }
 `;
