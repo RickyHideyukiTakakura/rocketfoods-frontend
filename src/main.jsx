@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "styled-components";
-import { EditDish } from "./pages/EditDish";
+import { NewDish } from "./pages/NewDish";
 import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
 
@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <EditDish />
+      <NewDish />
     </ThemeProvider>
   </React.StrictMode>
 );

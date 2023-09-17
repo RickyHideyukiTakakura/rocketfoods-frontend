@@ -38,6 +38,10 @@ export const Content = styled.div`
     font-size: 3.2rem;
     font-weight: 500;
   }
+
+  @media (min-width: 1200px) {
+    padding: 4rem 12.4rem 11.6rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -82,9 +86,44 @@ export const Form = styled.form`
       }
     }
   }
+
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-areas:
+      "image name category"
+      "ingredients ingredients price"
+      "description description description"
+      "undefined undefined button";
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .category {
+    grid-area: category;
+  }
+
+  .ingredients {
+    grid-area: ingredients;
+  }
+
+  .price {
+    grid-area: price;
+  }
+
+  .description {
+    grid-area: description;
+  }
+
+  .button {
+    grid-area: button;
+  }
 `;
 
 export const DishImage = styled.div`
+  grid-area: image;
+
   label {
     position: relative;
 

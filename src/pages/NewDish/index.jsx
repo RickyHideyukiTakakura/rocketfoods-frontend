@@ -35,12 +35,12 @@ export function NewDish() {
             </label>
           </S.DishImage>
 
-          <label htmlFor="name">
+          <label className="name" htmlFor="name">
             Nome
             <Input id="name" type="text" placeholder="Ex: Salada Caesar" />
           </label>
 
-          <label htmlFor="category">
+          <label className="category" htmlFor="category">
             Categoria
             <select name="category" id="category">
               <option>Refeição</option>
@@ -49,7 +49,7 @@ export function NewDish() {
             </select>
           </label>
 
-          <label htmlFor="ingredients">
+          <label className="ingredients" htmlFor="ingredients">
             Ingredientes
             <S.ContainerTags>
               <IngredientItem value="React" />
@@ -57,12 +57,12 @@ export function NewDish() {
             </S.ContainerTags>
           </label>
 
-          <label htmlFor="price">
+          <label className="price" htmlFor="price">
             Preço
             <Input type="text" id="price" placeholder="R$00,00" />
           </label>
 
-          <label htmlFor="description">
+          <label className="description" htmlFor="description">
             Descrição
             <Textarea
               id="description"
@@ -70,7 +70,7 @@ export function NewDish() {
             />
           </label>
 
-          <Button title="Salvar alterações" />
+          <Button className="button" title="Salvar alterações" />
         </S.Form>
       </S.Content>
 
