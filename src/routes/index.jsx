@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import { useAuth } from "../hooks/auth";
+import { useAuth } from "../hooks/useAuth";
 import { USER_ROLE } from "../utils/role";
 import { AdminRoutes } from "./admin.routes";
 import { AuthRoutes } from "./auth.routes";

@@ -8,11 +8,11 @@ function AuthProvider({ children }) {
 
   async function signIn({ email, password }) {
     try {
-      const response = await api.post("sessions", { email, password });
+      const response = await api.post("/sessions", { email, password });
       const { token, user } = response.data;
 
-      localStorage.setItem("@rocketfoods: user", JSON.stringify(user));
-      localStorage.setItem("@rocketfoods: token", token);
+      localStorage.setItem("@rocketfoods:user", JSON.stringify(user));
+      localStorage.setItem("@rocketfoods:token", token);
 
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
@@ -23,7 +23,7 @@ function AuthProvider({ children }) {
     } catch (error) {
       error.response
         ? alert(error.response.data.message)
-        : alert("Não foi possível entrar.");
+        : alert("Couldn't sign in");
     }
   }
 

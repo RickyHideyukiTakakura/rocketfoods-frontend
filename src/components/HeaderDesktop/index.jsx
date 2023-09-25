@@ -4,7 +4,7 @@ import LogoImage from "../../assets/logo.svg";
 import { Input } from "../Input";
 import * as S from "./styles";
 
-export function HeaderDesktop() {
+export function HeaderDesktop({ handleSignOut }) {
   return (
     <S.HeaderDesktop>
       <img src={LogoImage} alt="Logo do Food Explorer" />
@@ -18,7 +18,7 @@ export function HeaderDesktop() {
         <span>Pedidos (0)</span>
       </button>
 
-      <button>
+      <button onClick={handleSignOut}>
         <RiLogoutBoxRLine />
       </button>
     </S.HeaderDesktop>
