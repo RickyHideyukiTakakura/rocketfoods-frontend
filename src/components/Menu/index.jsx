@@ -1,9 +1,19 @@
 import { RiCloseLine, RiSearchLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
+import { USER_ROLE } from "../../utils/role";
 import { Footer } from "../Footer";
 import { Input } from "../Input";
 import * as S from "./styles";
 
 export function Menu({ handleSignOut, handleCloseMenu, styles }) {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  function handleNavigateToNewDish() {
+    navigate("/new");
+  }
+
   return (
     <S.Menu style={styles}>
       <div>
@@ -19,6 +29,10 @@ export function Menu({ handleSignOut, handleCloseMenu, styles }) {
           icon={RiSearchLine}
           placeholder="Busque por pratos ou ingredientes"
         />
+
+        {user.role === USER_ROLE.ADMIN && (
+          <button onClick={handleNavigateToNewDish}>Novo prato</button>
+        )}
 
         <button onClick={handleSignOut}>Sair</button>
       </div>

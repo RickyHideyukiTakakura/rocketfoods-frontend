@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { PiReceipt } from "react-icons/pi";
-import LogoImage from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
+import logoAdminImage from "../../assets/logo-admin.svg";
+import logoCustomerImage from "../../assets/logo.svg";
 import { Menu } from "../../components/Menu";
+import { useAuth } from "../../hooks/useAuth";
+import { USER_ROLE } from "../../utils/role";
 import * as S from "./styles";
 
 export function HeaderMobile({ handleSignOut }) {
+  const { user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = {
@@ -32,12 +37,23 @@ export function HeaderMobile({ handleSignOut }) {
         <button onClick={handleOpenMenu}>{<FiMenu />}</button>
       )}
 
-      <a href="#">
-        <img src={LogoImage} alt="Logo do Food Explorer" />
-      </a>
-      <a href="#">
-        <PiReceipt />
-      </a>
+      {user.role === USER_ROLE.ADMIN ? (
+        <Link to="/">
+          <img src={logoAdminImage} alt="Logo Admin do Food Explorer" />
+        </Link>
+      ) : (
+        <Link to="/">
+          <img src={logoCustomerImage} alt="Logo Customer do Food Explorer" />
+        </Link>
+      )}
+
+      {user.role === USER_ROLE.ADMIN ? (
+        <div></div>
+      ) : (
+        <Link to="/">
+          <PiReceipt />
+        </Link>
+      )}
     </S.HeaderMobile>
   );
 }
