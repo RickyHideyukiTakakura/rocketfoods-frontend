@@ -1,5 +1,6 @@
 import { PiUploadSimple } from "react-icons/pi";
 import { RiArrowLeftSLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
@@ -9,12 +10,18 @@ import { Textarea } from "../../components/Textarea";
 import * as S from "./styles";
 
 export function EditDish() {
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate(-1);
+  }
+
   return (
     <S.EditDish>
       <Header />
 
       <S.Content>
-        <button>
+        <button onClick={handleBack}>
           {<RiArrowLeftSLine />}
           <span>Voltar</span>
         </button>

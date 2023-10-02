@@ -20,7 +20,25 @@ export function NewDish() {
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
 
+  function verifyIfInputIsNull() {}
+
   async function handleSubmitNewDish() {
+    if (!name) {
+      return alert("Please enter a dish name");
+    }
+
+    if (newIngredient) {
+      return alert("Please enter a new ingredient or clean the field");
+    }
+
+    if (!category) {
+      return alert("Please select a category");
+    }
+
+    if (!price) {
+      return alert("Please enter a price");
+    }
+
     await api.post("/dishes", {
       name,
       category,
@@ -44,7 +62,7 @@ export function NewDish() {
     );
   }
 
-  function handleNavigateToHome() {
+  function handleBack() {
     navigate(-1);
   }
 
@@ -53,7 +71,7 @@ export function NewDish() {
       <Header />
 
       <S.Content>
-        <button onClick={handleNavigateToHome}>
+        <button onClick={handleBack}>
           {<RiArrowLeftSLine />}
           <span>Voltar</span>
         </button>
@@ -91,9 +109,10 @@ export function NewDish() {
               id="category"
               onChange={(event) => setCategory(event.target.value)}
             >
-              <option value="refeicao">Refeição</option>
-              <option value="sobremesa">Sobremesa</option>
-              <option value="comida">Comida</option>
+              <option value="">Selecione uma categoria</option>
+              <option value="Refeição">Refeição</option>
+              <option value="Sobremesa">Sobremesa</option>
+              <option value="Comida">Comida</option>
             </select>
           </label>
 

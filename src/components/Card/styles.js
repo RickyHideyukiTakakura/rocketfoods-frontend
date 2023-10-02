@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const Card = styled.div`
+export const Card = styled.button`
   position: relative;
 
   display: flex;
@@ -9,7 +9,7 @@ export const Card = styled.div`
   gap: 1.2rem;
 
   margin-top: 2.4rem;
-  padding: 2.4rem;
+  padding: 6.6rem 4.4rem;
 
   background: ${({ theme }) => theme.COLORS.DARK_200};
   border-radius: 0.8rem;
@@ -20,9 +20,10 @@ export const Card = styled.div`
     height: 8.8rem;
   }
 
-  svg + p {
+  p:first-of-type {
     font-size: 1.4rem;
     font-weight: 500;
+    white-space: nowrap;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
@@ -39,7 +40,7 @@ export const Card = styled.div`
     height: 2.4rem;
   }
 
-  img + svg {
+  a {
     position: absolute;
     top: 16px;
     right: 16px;
