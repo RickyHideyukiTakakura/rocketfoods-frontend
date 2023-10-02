@@ -75,17 +75,6 @@ export const Description = styled.div`
     flex-wrap: wrap;
     align-items: center;
     gap: 2.4rem;
-
-    span {
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
-      background: ${({ theme }) => theme.COLORS.DARK_1000};
-
-      padding: 0.4rem 0.8rem;
-      border-radius: 0.5rem;
-
-      font-size: 1.4rem;
-      font-weight: 500;
-    }
   }
 
   @media (min-width: 1200px) {
@@ -121,7 +110,7 @@ export const Order = styled.div`
     }
   }
 
-  > div + button {
+  > button {
     display: flex;
     align-items: center;
     gap: 0.6rem;
