@@ -21,6 +21,10 @@ export function Details() {
     navigate(-1);
   }
 
+  function handleNavigateToEdit() {
+    navigate(`/edit/${params.id}`);
+  }
+
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(`/dishes/${params.id}`);
@@ -65,7 +69,7 @@ export function Details() {
               {user.role === USER_ROLE.CUSTOMER && <Quantity />}
 
               {user.role === USER_ROLE.ADMIN ? (
-                <button>Editar pedido</button>
+                <button onClick={handleNavigateToEdit}>Editar pedido</button>
               ) : (
                 <button>
                   <PiReceipt /> <span>pedir ∙ R$ 25,00</span>
