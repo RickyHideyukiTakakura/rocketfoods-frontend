@@ -9,7 +9,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { USER_ROLE } from "../../utils/role";
 import * as S from "./styles";
 
-export function HeaderMobile({ handleSignOut }) {
+export function HeaderMobile({ handleSignOut, onSearchChange }) {
   const { user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,6 +31,7 @@ export function HeaderMobile({ handleSignOut }) {
         <Menu
           handleSignOut={handleSignOut}
           handleCloseMenu={handleCloseMenu}
+          onSearchChange={onSearchChange}
           styles={toggleMenu}
         />
       ) : (

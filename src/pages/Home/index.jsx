@@ -37,7 +37,7 @@ export function Home() {
 
   return (
     <S.Home>
-      <Header />
+      <Header onSearchChange={setSearch} />
 
       <main>
         <S.Banner>

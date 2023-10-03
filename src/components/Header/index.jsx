@@ -4,7 +4,7 @@ import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { HeaderDesktop } from "../HeaderDesktop";
 import { HeaderMobile } from "../HeaderMobile";
 
-export function Header() {
+export function Header({ onSearchChange }) {
   const { windowWidth, screenResponsiveWidth } = useWindowWidth();
   const { signOut } = useAuth();
   const navigate = useNavigate();
@@ -17,9 +17,15 @@ export function Header() {
   return (
     <>
       {windowWidth <= screenResponsiveWidth ? (
-        <HeaderMobile handleSignOut={handleSignOut} />
+        <HeaderMobile
+          handleSignOut={handleSignOut}
+          onSearchChange={onSearchChange}
+        />
       ) : (
-        <HeaderDesktop handleSignOut={handleSignOut} />
+        <HeaderDesktop
+          handleSignOut={handleSignOut}
+          onSearchChange={onSearchChange}
+        />
       )}
     </>
   );

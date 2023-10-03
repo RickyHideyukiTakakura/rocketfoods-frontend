@@ -8,7 +8,7 @@ import { USER_ROLE } from "../../utils/role";
 import { Input } from "../Input";
 import * as S from "./styles";
 
-export function HeaderDesktop({ handleSignOut }) {
+export function HeaderDesktop({ handleSignOut, onSearchChange }) {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -27,6 +27,7 @@ export function HeaderDesktop({ handleSignOut }) {
         icon={RiSearchLine}
         type="text"
         placeholder="Busque por pratos ou ingredientes"
+        onChange={(event) => onSearchChange(event.target.value)}
       />
       {user.role === USER_ROLE.ADMIN ? (
         <button onClick={handleNavigateToNewDish}>

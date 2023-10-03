@@ -6,7 +6,12 @@ import { Footer } from "../Footer";
 import { Input } from "../Input";
 import * as S from "./styles";
 
-export function Menu({ handleSignOut, handleCloseMenu, styles }) {
+export function Menu({
+  handleSignOut,
+  handleCloseMenu,
+  onSearchChange,
+  styles,
+}) {
   const { user } = useAuth();
   const navigate = useNavigate();
 
@@ -28,6 +33,7 @@ export function Menu({ handleSignOut, handleCloseMenu, styles }) {
           type="text"
           icon={RiSearchLine}
           placeholder="Busque por pratos ou ingredientes"
+          onChange={(event) => onSearchChange(event.target.value)}
         />
 
         {user.role === USER_ROLE.ADMIN && (
