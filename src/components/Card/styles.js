@@ -64,10 +64,15 @@ export const Card = styled.button`
     }
   }
 
-  div + button {
+  div + span {
     padding: 0.4rem 6rem;
-    border-radius: 0.5rem;
     margin-top: 0.4rem;
+    border-radius: 0.5rem;
+    border: 0;
+
+    width: 100%;
+    background: ${({ theme }) => theme.COLORS.TOMATO_100};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
   }
 
   &:hover {

@@ -19,8 +19,7 @@ export function NewDish() {
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
-
-  function verifyIfInputIsNull() {}
+  const [imageFile, setImageFile] = useState(null);
 
   async function handleSubmitNewDish() {
     if (!name) {
@@ -39,16 +38,34 @@ export function NewDish() {
       return alert("Please enter a price");
     }
 
+    const createImage = createImageFile(imageFile);
+
     await api.post("/dishes", {
       name,
       category,
       price,
       description,
       ingredients,
+      // createImage,
     });
 
     alert("New dish created successfully");
     navigate(-1);
+  }
+
+  function createImageFile(imageFile) {
+    if (imageFile) {
+      const fileUploadForm = new FormData();
+      fileUploadForm.append("image", imageFile);
+
+      return fileUploadForm;
+    }
+  }
+
+  function handleChangeImage(event) {
+    const file = event.target.files[0];
+
+    setImageFile(file);
   }
 
   function handleAddIngredient() {
@@ -85,8 +102,11 @@ export function NewDish() {
               <Input
                 icon={PiUploadSimple}
                 id="image"
+                name="image"
+                e
                 type="file"
                 placeholder="Selecionar imagem"
+                onChange={handleChangeImage}
               />
               <span>Selecionar imagem</span>
             </label>
@@ -116,7 +136,7 @@ export function NewDish() {
             </select>
           </label>
 
-          <label className="ingredients" htmlFor="ingredients">
+          <label className="ingredients">
             Ingredientes
             <S.ContainerTags>
               {ingredients.map((ingredient, index) => (

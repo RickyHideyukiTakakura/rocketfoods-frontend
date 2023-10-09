@@ -13,8 +13,10 @@ import * as S from "./styles";
 
 export function Details() {
   const { user } = useAuth();
-  const params = useParams();
   const [data, setData] = useState(null);
+  const imageURL =
+    data && data.image && `${api.defaults.baseURL}/files/${data.image}`;
+  const params = useParams();
   const navigate = useNavigate();
 
   function handleBack() {
@@ -45,7 +47,7 @@ export function Details() {
             <span>Voltar</span>
           </button>
 
-          <img src={data.image} alt={data.name} />
+          <img src={imageURL} alt={data.name} />
 
           <div>
             <S.Description>
@@ -72,7 +74,7 @@ export function Details() {
                 <button onClick={handleNavigateToEdit}>Editar pedido</button>
               ) : (
                 <button>
-                  <PiReceipt /> <span>pedir ∙ R$ 25,00</span>
+                  <PiReceipt /> <span>pedir ∙ R$ {data.price}</span>
                 </button>
               )}
             </S.Order>

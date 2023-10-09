@@ -4,9 +4,9 @@ import * as S from "./styles";
 export function Quantity() {
   return (
     <S.Quantity>
-      <button>{<FiMinus />}</button>
+      <span>{<FiMinus />}</span>
       <span>01</span>
-      <button>{<FiPlus />}</button>
+      <span>{<FiPlus />}</span>
     </S.Quantity>
   );
 }

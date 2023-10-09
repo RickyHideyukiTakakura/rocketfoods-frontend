@@ -22,6 +22,10 @@ export function Home() {
     fetchDishes();
   }, [search]);
 
+  function getImageURL(dishImage) {
+    return dishImage ? `${api.defaults.baseURL}/files/${dishImage}` : "";
+  }
+
   // Organize os pratos em categorias
   const categorizedDishes = dishes.reduce((acc, dish) => {
     if (!acc[dish.category]) {
@@ -55,7 +59,7 @@ export function Home() {
               <Card
                 key={dish.id} // Certifique-se de usar uma chave única para cada card
                 data={{
-                  image: dish.image,
+                  image: getImageURL(dish.image),
                   title: dish.name,
                   price: dish.price,
                   quantity: dish.quantity,

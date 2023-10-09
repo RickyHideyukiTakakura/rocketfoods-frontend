@@ -19,10 +19,15 @@ export function EditDish() {
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
+  const [imageFile, setImageFile] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
 
   async function handleSubmitEditDish() {
+    if (newIngredient) {
+      return alert("Please enter a new ingredient or clean the field");
+    }
+
     await api.put(`/dishes/${params.id}`, {
       name: name || data.name,
       category: category || data.category,
@@ -31,9 +36,31 @@ export function EditDish() {
       description: description || data.description,
     });
 
+    await updateImageFile(data, imageFile);
+
     alert("Dish edited successfully!");
 
     navigate(-1);
+  }
+
+  async function updateImageFile(dish, imageFile) {
+    if (imageFile) {
+      const fileUploadForm = new FormData();
+      fileUploadForm.append("image", imageFile);
+
+      const response = await api.patch(
+        `/dishes/${params.id}/image`,
+        fileUploadForm
+      );
+
+      dish.image = response.data.image;
+    }
+  }
+
+  function handleChangeImage(event) {
+    const file = event.target.files[0];
+
+    setImageFile(file);
   }
 
   function handleAddIngredient() {
@@ -82,6 +109,7 @@ export function EditDish() {
                   id="image"
                   type="file"
                   placeholder="Selecionar imagem para altera-la"
+                  onChange={handleChangeImage}
                 />
                 <span>Selecionar imagem para altera-la</span>
               </label>
