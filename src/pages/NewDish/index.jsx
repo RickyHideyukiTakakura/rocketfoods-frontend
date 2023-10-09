@@ -22,43 +22,30 @@ export function NewDish() {
   const [imageFile, setImageFile] = useState(null);
 
   async function handleSubmitNewDish() {
-    if (!name) {
-      return alert("Please enter a dish name");
+    if (!name || !category || !price) {
+      return alert("Please fill in all required fields.");
     }
 
-    if (newIngredient) {
-      return alert("Please enter a new ingredient or clean the field");
-    }
+    try {
+      const imageFormData = new FormData();
+      imageFormData.append("image", imageFile);
+      const {
+        data: { filename },
+      } = await api.post("/dishes/image", imageFormData);
 
-    if (!category) {
-      return alert("Please select a category");
-    }
+      await api.post("/dishes", {
+        name,
+        category,
+        price,
+        description,
+        ingredients,
+        image: filename,
+      });
 
-    if (!price) {
-      return alert("Please enter a price");
-    }
-
-    const createImage = createImageFile(imageFile);
-
-    await api.post("/dishes", {
-      name,
-      category,
-      price,
-      description,
-      ingredients,
-      // createImage,
-    });
-
-    alert("New dish created successfully");
-    navigate(-1);
-  }
-
-  function createImageFile(imageFile) {
-    if (imageFile) {
-      const fileUploadForm = new FormData();
-      fileUploadForm.append("image", imageFile);
-
-      return fileUploadForm;
+      alert("New dish created successfully");
+      navigate(-1);
+    } catch (error) {
+      console.error("Error creating new dish:", error);
     }
   }
 
@@ -95,7 +82,7 @@ export function NewDish() {
 
         <h3>Novo prato</h3>
 
-        <S.Form>
+        <S.Form encType="multipart/form-data">
           <S.DishImage>
             <label htmlFor="image">
               Imagem do prato
@@ -103,7 +90,6 @@ export function NewDish() {
                 icon={PiUploadSimple}
                 id="image"
                 name="image"
-                e
                 type="file"
                 placeholder="Selecionar imagem"
                 onChange={handleChangeImage}
