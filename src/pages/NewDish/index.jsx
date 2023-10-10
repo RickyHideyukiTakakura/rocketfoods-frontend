@@ -22,31 +22,53 @@ export function NewDish() {
   const [imageFile, setImageFile] = useState(null);
 
   async function handleSubmitNewDish() {
-    if (!name || !category || !price) {
-      return alert("Please fill in all required fields.");
-    }
-
     try {
-      const imageFormData = new FormData();
-      imageFormData.append("image", imageFile);
-      const {
-        data: { filename },
-      } = await api.post("/dishes/image", imageFormData);
+      validateInput();
 
-      await api.post("/dishes", {
+      const uploadedImageFileName = await uploadImage(imageFile);
+
+      const newDishData = {
         name,
         category,
         price,
         description,
         ingredients,
-        image: filename,
-      });
+        image: uploadedImageFileName,
+      };
+
+      await createNewDish(newDishData);
 
       alert("New dish created successfully");
-      navigate(-1);
+
+      navigateBack();
     } catch (error) {
-      console.error("Error creating new dish:", error);
+      handleError(error);
     }
+  }
+
+  async function uploadImage(imageFile) {
+    const imageFormData = new FormData();
+    imageFormData.append("image", imageFile);
+
+    const {
+      data: { filename },
+    } = await api.post("/dishes/image", imageFormData);
+
+    return filename;
+  }
+
+  async function createNewDish(newDishData) {
+    await api.post("/dishes", newDishData);
+  }
+
+  function validateInput() {
+    if (!name || !category || !price || !description || !ingredients) {
+      throw new Error("Please fill in all fields.");
+    }
+  }
+
+  function handleError(error) {
+    alert("Error creating new dish: " + error.message);
   }
 
   function handleChangeImage(event) {
@@ -66,7 +88,7 @@ export function NewDish() {
     );
   }
 
-  function handleBack() {
+  function navigateBack() {
     navigate(-1);
   }
 
@@ -75,7 +97,7 @@ export function NewDish() {
       <Header />
 
       <S.Content>
-        <button onClick={handleBack}>
+        <button onClick={navigateBack}>
           {<RiArrowLeftSLine />}
           <span>Voltar</span>
         </button>

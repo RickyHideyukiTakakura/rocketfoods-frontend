@@ -13,6 +13,22 @@ export function Home() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
+  const categorizedDishes = dishes.reduce((accumulator, dish) => {
+    if (!accumulator[dish.category]) {
+      accumulator[dish.category] = [];
+    }
+    accumulator[dish.category].push(dish);
+    return accumulator;
+  }, {});
+
+  function getImageURL(dishImage) {
+    return dishImage ? `${api.defaults.baseURL}/files/${dishImage}` : "";
+  }
+
+  function handleNavigateToDetails(id) {
+    navigate(`/details/${id}`);
+  }
+
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(`/dishes?search=${search}`);
@@ -21,23 +37,6 @@ export function Home() {
 
     fetchDishes();
   }, [search]);
-
-  function getImageURL(dishImage) {
-    return dishImage ? `${api.defaults.baseURL}/files/${dishImage}` : "";
-  }
-
-  // Organize os pratos em categorias
-  const categorizedDishes = dishes.reduce((acc, dish) => {
-    if (!acc[dish.category]) {
-      acc[dish.category] = [];
-    }
-    acc[dish.category].push(dish);
-    return acc;
-  }, {});
-
-  function handleDetails(id) {
-    navigate(`/details/${id}`);
-  }
 
   return (
     <S.Home>
@@ -52,19 +51,18 @@ export function Home() {
           </div>
         </S.Banner>
 
-        {/* Mapeie as categorias e renderize as seções */}
         {Object.keys(categorizedDishes).map((category) => (
           <Section key={category} title={category}>
             {categorizedDishes[category].map((dish) => (
               <Card
-                key={dish.id} // Certifique-se de usar uma chave única para cada card
+                key={dish.id}
                 data={{
                   image: getImageURL(dish.image),
                   title: dish.name,
                   price: dish.price,
                   quantity: dish.quantity,
                 }}
-                onClick={() => handleDetails(dish.id)}
+                onClick={() => handleNavigateToDetails(dish.id)}
               />
             ))}
           </Section>

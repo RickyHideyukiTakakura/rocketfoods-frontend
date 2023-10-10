@@ -23,24 +23,32 @@ export function EditDish() {
   const params = useParams();
   const navigate = useNavigate();
 
-  async function handleSubmitEditDish() {
-    if (newIngredient) {
-      return alert("Please enter a new ingredient or clean the field");
+  async function handleSubmitEditedDish() {
+    try {
+      verifyIngredientInput();
+
+      const editedDishData = {
+        name: name || data.name,
+        category: category || data.category,
+        price: price || data.price,
+        ingredients,
+        description: description || data.description,
+      };
+
+      await editDish(editedDishData);
+
+      await updateImageFile(data, imageFile);
+
+      alert("Dish edited successfully!");
+
+      navigateBack();
+    } catch (error) {
+      alert(error.message);
     }
+  }
 
-    await api.put(`/dishes/${params.id}`, {
-      name: name || data.name,
-      category: category || data.category,
-      price: price || data.price,
-      ingredients,
-      description: description || data.description,
-    });
-
-    await updateImageFile(data, imageFile);
-
-    alert("Dish edited successfully!");
-
-    navigate(-1);
+  async function editDish(editedDishData) {
+    await api.put(`/dishes/${params.id}`, editedDishData);
   }
 
   async function updateImageFile(dish, imageFile) {
@@ -54,6 +62,16 @@ export function EditDish() {
       );
 
       dish.image = response.data.image;
+    }
+  }
+
+  function verifyIngredientInput() {
+    if (newIngredient) {
+      throw new Error("Please enter a new ingredient or clean the field");
+    }
+
+    if (ingredients.length === 0) {
+      throw new Error("Please enter a new ingredient");
     }
   }
 
@@ -74,7 +92,7 @@ export function EditDish() {
     );
   }
 
-  function handleBack() {
+  function navigateBack() {
     navigate(-1);
   }
 
@@ -92,7 +110,7 @@ export function EditDish() {
       <Header />
 
       <S.Content>
-        <button onClick={handleBack}>
+        <button onClick={navigateBack}>
           {<RiArrowLeftSLine />}
           <span>Voltar</span>
         </button>
@@ -182,7 +200,7 @@ export function EditDish() {
               <Button title="Excluir prato" />
               <Button
                 title="Salvar alterações"
-                onClick={handleSubmitEditDish}
+                onClick={handleSubmitEditedDish}
               />
             </div>
           </S.Form>

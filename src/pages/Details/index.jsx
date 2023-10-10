@@ -14,12 +14,12 @@ import * as S from "./styles";
 export function Details() {
   const { user } = useAuth();
   const [data, setData] = useState(null);
-  const imageURL =
-    data && data.image && `${api.defaults.baseURL}/files/${data.image}`;
   const params = useParams();
   const navigate = useNavigate();
+  const imageURL =
+    data && data.image && `${api.defaults.baseURL}/files/${data.image}`;
 
-  function handleBack() {
+  function navigateBack() {
     navigate(-1);
   }
 
@@ -42,7 +42,7 @@ export function Details() {
 
       {data && (
         <div>
-          <button onClick={handleBack}>
+          <button onClick={navigateBack}>
             {<RiArrowLeftSLine />}
             <span>Voltar</span>
           </button>
