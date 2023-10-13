@@ -12,27 +12,6 @@ export const Content = styled.div`
   gap: 2.4rem;
   padding: 1.2rem 3.2rem 5.4rem;
 
-  > button:first-child {
-    display: flex;
-    align-items: center;
-    align-self: flex-start;
-
-    background: transparent;
-    border: none;
-    color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
-    svg {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
-
-    span {
-      font-size: 1.6rem;
-      font-family: "Poppins";
-      font-weight: 500;
-    }
-  }
-
   h3 {
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
     font-size: 3.2rem;

@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
   width: 100%;
   background: ${({ theme }) => theme.COLORS.TOMATO_100};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
@@ -11,8 +15,4 @@ export const Button = styled.button`
 
   font-weight: 500;
   font-size: 1.4rem;
-
-  &:disabled {
-    opacity: 0.5;
-  }
 `;

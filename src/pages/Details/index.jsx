@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { PiReceipt } from "react-icons/pi";
-import { RiArrowLeftSLine } from "react-icons/ri";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "../../components/Button";
+import { ButtonReturn } from "../../components/ButtonReturn";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { IngredientTag } from "../../components/IngredientTag";
@@ -41,11 +42,8 @@ export function Details() {
       <Header />
 
       {data && (
-        <div>
-          <button onClick={navigateBack}>
-            {<RiArrowLeftSLine />}
-            <span>Voltar</span>
-          </button>
+        <S.Main>
+          <ButtonReturn onClick={navigateBack} />
 
           <img src={imageURL} alt={data.name} />
 
@@ -71,15 +69,13 @@ export function Details() {
               {user.role === USER_ROLE.CUSTOMER && <Quantity />}
 
               {user.role === USER_ROLE.ADMIN ? (
-                <button onClick={handleNavigateToEdit}>Editar pedido</button>
+                <Button title="Editar pedido" onClick={handleNavigateToEdit} />
               ) : (
-                <button>
-                  <PiReceipt /> <span>pedir ∙ R$ {data.price}</span>
-                </button>
+                <Button title={"pedir ∙ R$" + data.price} icon={PiReceipt} />
               )}
             </S.Order>
           </div>
-        </div>
+        </S.Main>
       )}
       <Footer />
     </S.Details>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { PiUploadSimple } from "react-icons/pi";
-import { RiArrowLeftSLine } from "react-icons/ri";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/Button";
+import { ButtonReturn } from "../../components/ButtonReturn";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { IngredientItem } from "../../components/IngredientItem";
@@ -44,6 +44,17 @@ export function EditDish() {
       navigateBack();
     } catch (error) {
       alert(error.message);
+    }
+  }
+
+  async function handleDeleteDish() {
+    const confirm = window.confirm(
+      "Are you sure you want to delete this dish?"
+    );
+
+    if (confirm) {
+      await api.delete(`/dishes/${params.id}`);
+      navigate("/");
     }
   }
 
@@ -110,10 +121,7 @@ export function EditDish() {
       <Header />
 
       <S.Content>
-        <button onClick={navigateBack}>
-          {<RiArrowLeftSLine />}
-          <span>Voltar</span>
-        </button>
+        <ButtonReturn onClick={navigateBack} />
 
         <h3>Editar prato</h3>
 
@@ -197,7 +205,7 @@ export function EditDish() {
             </label>
 
             <div className="button">
-              <Button title="Excluir prato" />
+              <Button title="Excluir prato" onClick={handleDeleteDish} />
               <Button
                 title="Salvar alterações"
                 onClick={handleSubmitEditedDish}

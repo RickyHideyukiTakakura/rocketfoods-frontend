@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { PiUploadSimple } from "react-icons/pi";
-import { RiArrowLeftSLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
+import { ButtonReturn } from "../../components/ButtonReturn";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { IngredientItem } from "../../components/IngredientItem";
@@ -97,10 +97,7 @@ export function NewDish() {
       <Header />
 
       <S.Content>
-        <button onClick={navigateBack}>
-          {<RiArrowLeftSLine />}
-          <span>Voltar</span>
-        </button>
+        <ButtonReturn onClick={navigateBack} />
 
         <h3>Novo prato</h3>
 

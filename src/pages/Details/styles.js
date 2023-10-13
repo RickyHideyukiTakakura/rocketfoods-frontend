@@ -4,52 +4,29 @@ export const Details = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
+`;
 
-  > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    padding: 1.6rem 5.6rem 3.2rem;
+  padding: 1.6rem 5.6rem 3.2rem;
 
-    > button:first-child {
-      display: flex;
-      align-items: center;
-      align-self: flex-start;
+  img {
+    margin: 1.6rem 0;
 
-      background: transparent;
-      border: none;
-      color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
-      svg {
-        width: 3.2rem;
-        height: 3.2rem;
-      }
-
-      span {
-        font-size: 2.4rem;
-        font-family: "Poppins";
-        font-weight: 500;
-      }
-    }
-
-    img {
-      margin: 1.6rem 0;
-
-      width: 26.4rem;
-      height: 26.4rem;
-    }
+    width: 26.4rem;
+    height: 26.4rem;
   }
 
   @media (min-width: 1200px) {
-    > div {
-      flex-direction: row;
-      gap: 4.8rem;
+    flex-direction: row;
+    gap: 4.8rem;
 
-      img {
-        width: 39rem;
-        height: 39rem;
-      }
+    img {
+      width: 39rem;
+      height: 39rem;
     }
   }
 `;
@@ -110,26 +87,7 @@ export const Order = styled.div`
     }
   }
 
-  > button {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+  button {
     padding: 0.8rem 4.3rem;
-
-    border-radius: 0.3rem;
-    border: none;
-
-    background: ${({ theme }) => theme.COLORS.TOMATO_100};
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
-
-    svg {
-      width: 2.2rem;
-      height: 2.2rem;
-    }
-
-    span {
-      font-size: 1rem;
-      font-weight: 500;
-    }
   }
 `;
