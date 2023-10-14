@@ -1,4 +1,13 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const Menu = styled.div`
   display: none;
@@ -12,6 +21,8 @@ export const Menu = styled.div`
   z-index: 2;
 
   background: ${({ theme }) => theme.COLORS.DARK_400};
+
+  animation: ${fadeIn} 0.5s ease-in;
 
   > div:first-child {
     background: ${({ theme }) => theme.COLORS.DARK_700};

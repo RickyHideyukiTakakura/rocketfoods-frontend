@@ -1,8 +1,28 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
+
+const bannerImageSlide = keyframes`
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const bannerTextSlideIn = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
 
 export const Home = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
 
   main {
@@ -32,6 +52,8 @@ export const Banner = styled.div`
   div {
     margin-left: 15.2rem;
 
+    animation: ${bannerTextSlideIn} 0.5s ease-in;
+
     h3 {
       color: ${({ theme }) => theme.COLORS.LIGHT_300};
       font-size: 1.8rem;
@@ -52,6 +74,8 @@ export const Banner = styled.div`
     position: absolute;
     top: -30px;
     left: -20px;
+
+    animation: ${bannerImageSlide} 0.5s ease-in;
   }
 
   @media (min-width: 1200px) {

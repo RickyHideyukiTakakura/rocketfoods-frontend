@@ -8,6 +8,8 @@ export const HeaderDesktop = styled.header`
 
   padding: 2.8rem 12.8rem;
 
+  background: ${({ theme }) => theme.COLORS.DARK_700};
+
   img {
     height: 3rem;
   }

@@ -3,6 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { HeaderDesktop } from "../HeaderDesktop";
 import { HeaderMobile } from "../HeaderMobile";
+import * as S from "./styles";
 
 export function Header({ onSearchChange }) {
   const { windowWidth, screenResponsiveWidth } = useWindowWidth();
@@ -15,7 +16,7 @@ export function Header({ onSearchChange }) {
   }
 
   return (
-    <>
+    <S.Header>
       {windowWidth <= screenResponsiveWidth ? (
         <HeaderMobile
           handleSignOut={handleSignOut}
@@ -27,6 +28,6 @@ export function Header({ onSearchChange }) {
           onSearchChange={onSearchChange}
         />
       )}
-    </>
+    </S.Header>
   );
 }

@@ -1,4 +1,15 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
+
+const dishFadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const Card = styled.button`
   position: relative;
@@ -14,6 +25,8 @@ export const Card = styled.button`
   background: ${({ theme }) => theme.COLORS.DARK_200};
   border-radius: 0.8rem;
   border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
+
+  animation: ${dishFadeIn} 0.5s ease forwards;
 
   img {
     width: 8.8rem;

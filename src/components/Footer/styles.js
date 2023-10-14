@@ -1,4 +1,13 @@
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
+
+const slideUp = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+`;
 
 export const Footer = styled.footer`
   display: flex;
@@ -13,4 +22,6 @@ export const Footer = styled.footer`
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
     font-size: 1.2rem;
   }
+
+  animation: ${slideUp} 0.5s ease-in;
 `;
