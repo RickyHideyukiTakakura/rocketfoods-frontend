@@ -62,7 +62,13 @@ export function NewDish() {
   }
 
   function validateInput() {
-    if (!name || !category || !price || !description || !ingredients) {
+    if (
+      !name ||
+      !category ||
+      !price ||
+      !description ||
+      ingredients.length === 0
+    ) {
       throw new Error("Please fill in all fields.");
     }
   }

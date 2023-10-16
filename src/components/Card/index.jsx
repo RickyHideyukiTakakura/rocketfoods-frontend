@@ -1,30 +1,31 @@
 import { FiEdit2, FiHeart } from "react-icons/fi";
 import { useAuth } from "../../hooks/useAuth";
 import { USER_ROLE } from "../../utils/role";
+import { Button } from "../Button";
 import { Quantity } from "../Quantity";
 import * as S from "./styles";
 
-export function Card({ data, ...rest }) {
+export function Card({ data, dishDetails }) {
   const { user } = useAuth();
 
   return (
-    <S.Card {...rest}>
+    <S.Card>
       <img src={data.image} alt={data.name} />
       {user.role === USER_ROLE.ADMIN ? (
-        <a>
+        <button onClick={dishDetails}>
           <FiEdit2 />
-        </a>
+        </button>
       ) : (
-        <a>
+        <button>
           <FiHeart />
-        </a>
+        </button>
       )}
       <p>{data.title}</p>
       <p>R$ {data.price}</p>
       {user.role === USER_ROLE.ADMIN || (
         <>
           <Quantity />
-          <span>Incluir</span>
+          <Button title="Incluir" onClick={dishDetails} />
         </>
       )}
     </S.Card>

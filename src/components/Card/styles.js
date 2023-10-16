@@ -11,7 +11,7 @@ const dishFadeIn = keyframes`
   }
 `;
 
-export const Card = styled.button`
+export const Card = styled.div`
   position: relative;
 
   display: flex;
@@ -53,31 +53,21 @@ export const Card = styled.button`
     height: 2.4rem;
   }
 
-  a {
+  img + button {
     position: absolute;
     top: 16px;
     right: 16px;
+    background: transparent;
+    border: none;
   }
 
-  & > div {
+  div {
     display: flex;
     align-items: center;
     gap: 1.4rem;
-
-    span {
-      font-size: 1.6rem;
-      font-family: "Roboto", sans-serif;
-      color: ${({ theme }) => theme.COLORS.LIGHT_300};
-    }
-
-    button {
-      display: flex;
-      border: none;
-      background: transparent;
-    }
   }
 
-  div + span {
+  div + button {
     padding: 0.4rem 6rem;
     margin-top: 0.4rem;
     border-radius: 0.5rem;

@@ -62,7 +62,7 @@ export function Home() {
                   price: dish.price,
                   quantity: dish.quantity,
                 }}
-                onClick={() => handleNavigateToDetails(dish.id)}
+                dishDetails={() => handleNavigateToDetails(dish.id)}
               />
             ))}
           </Section>

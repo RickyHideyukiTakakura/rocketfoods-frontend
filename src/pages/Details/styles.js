@@ -87,7 +87,7 @@ export const Order = styled.div`
     }
   }
 
-  button {
+  div + button {
     padding: 0.8rem 4.3rem;
   }
 `;
