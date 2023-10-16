@@ -59,6 +59,7 @@ export function Home() {
                 data={{
                   image: getImageURL(dish.image),
                   title: dish.name,
+                  description: dish.description,
                   price: dish.price,
                   quantity: dish.quantity,
                 }}

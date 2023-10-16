@@ -21,6 +21,7 @@ export function Card({ data, dishDetails }) {
         </button>
       )}
       <p>{data.title}</p>
+      <small>{data.description}</small>
       <p>R$ {data.price}</p>
       {user.role === USER_ROLE.ADMIN || (
         <>

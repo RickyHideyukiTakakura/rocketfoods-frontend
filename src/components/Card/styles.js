@@ -19,6 +19,8 @@ export const Card = styled.div`
   align-items: center;
   gap: 1.2rem;
 
+  min-width: 30rem;
+
   margin-top: 2.4rem;
   padding: 6.6rem 4.4rem;
 
@@ -34,13 +36,19 @@ export const Card = styled.div`
   }
 
   p:first-of-type {
-    font-size: 1.4rem;
-    font-weight: 500;
+    font-size: 1.8rem;
+    font-weight: 700;
     white-space: nowrap;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
-  p + p {
+  small {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+  }
+
+  small + p {
     font-size: 1.6rem;
     font-family: "Roboto", sans-serif;
     color: ${({ theme }) => theme.COLORS.CAKE_200};
