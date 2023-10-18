@@ -135,16 +135,12 @@ export function NewDish() {
 
           <label className="category" htmlFor="category">
             Categoria
-            <select
+            <Input
               name="category"
               id="category"
+              placeholder="Ex: Sobremesa"
               onChange={(event) => setCategory(event.target.value)}
-            >
-              <option value="">Selecione uma categoria</option>
-              <option value="Refeição">Refeição</option>
-              <option value="Sobremesa">Sobremesa</option>
-              <option value="Comida">Comida</option>
-            </select>
+            />
           </label>
 
           <label className="ingredients">
