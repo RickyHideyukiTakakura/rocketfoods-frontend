@@ -54,6 +54,7 @@ export const Form = styled.form`
 
   label + div {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 3.2rem;
 
