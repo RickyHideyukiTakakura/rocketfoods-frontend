@@ -81,7 +81,6 @@ export const Card = styled.div`
     border-radius: 0.5rem;
     border: 0;
 
-    width: 100%;
     background: ${({ theme }) => theme.COLORS.TOMATO_100};
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
   }
