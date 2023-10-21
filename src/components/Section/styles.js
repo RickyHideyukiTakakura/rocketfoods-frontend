@@ -44,5 +44,6 @@ export const Content = styled.div`
   display: flex;
   gap: 1.6rem;
 
-  overflow-x: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
 `;

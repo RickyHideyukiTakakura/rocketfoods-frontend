@@ -87,6 +87,6 @@ export const Card = styled.div`
 
   &:hover {
     scale: 1.1;
-    filter: brightness(1.2);
+    filter: brightness(1.3);
   }
 `;
