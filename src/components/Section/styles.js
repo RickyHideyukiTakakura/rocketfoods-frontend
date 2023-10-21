@@ -46,4 +46,8 @@ export const Content = styled.div`
 
   overflow-x: scroll;
   overflow-y: hidden;
+
+  @media (min-width: 1200px) {
+    overflow-x: hidden;
+  }
 `;
