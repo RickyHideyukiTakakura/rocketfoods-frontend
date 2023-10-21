@@ -63,6 +63,7 @@ export function NewDish() {
 
   function validateInput() {
     if (
+      !imageFile ||
       !name ||
       !category ||
       !price ||
