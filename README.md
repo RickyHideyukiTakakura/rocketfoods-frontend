@@ -27,7 +27,7 @@ Este é um site de um simulador de restaurante onde um administrador pode criar,
 
 #### Abrir o site pelo link:
 
-[rocketfoods]()
+[rocketfoods](https://rocketfoods-frontend.vercel.app/)
 
 #### Para rodar na maquina local:
 
@@ -60,5 +60,3 @@ Na Home é possível visualizar todos os pratos cadastrados, pesquisar por algum
 ### 5. Criação e Edição de pratos
 
 Ambas funcionalidades são bem semelhantes e só podem ser acessadas por um administrador. Para criação de um prato, é necessário informar a imagem, nome, categoria, ingredientes, preço e descrição. Na edição, o usuário poderá alterar apenas o que ele desejar, sendo necessário informar novamente apenas os ingredientes.
-
-## Screenshots
