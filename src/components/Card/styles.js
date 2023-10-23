@@ -20,6 +20,7 @@ export const Card = styled.div`
   gap: 1.2rem;
 
   min-width: 30rem;
+  max-width: fit-content;
 
   margin-top: 2.4rem;
   padding: 6.6rem 4.4rem;
